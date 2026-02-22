@@ -1,5 +1,9 @@
 {
     "chat.tools.terminal.autoApprove": {
         "uv": true
-    }
+    },
+    "github.copilot.enable": {
+        "markdown": true
+    },
+    "omnisharp.autoStart": false
 }
