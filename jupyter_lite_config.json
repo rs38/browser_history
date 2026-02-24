@@ -1,0 +1,9 @@
+{
+  "FederatedExtensionAddon": {
+    "extra_labextensions_path": ["/home/fb/.local/share/jupyter/labextensions"]
+  },
+  "jupyter-config-data": {
+    "appName": "JupyterLite",
+    "defaultKernelName": "python"
+  }
+}
