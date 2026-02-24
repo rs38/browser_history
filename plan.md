@@ -20,7 +20,7 @@ Deploy the browser history analysis notebooks as a publicly accessible JupyterLi
 - [x] Install `jupyterlite-pyodide-kernel` locally
 - [x] Fix `federated_extensions: []` — pyodide kernel JS extension not found because pip installs to `~/.local` (user site), not `sys.prefix`. Fixed via `jupyter_lite_config.json` `FederatedExtensionAddon.extra_labextensions_path`
 - [x] Verify `@jupyterlite/pyodide-kernel-extension` appears in `dist/jupyter-lite.json`
-- [ ] Confirm Python kernel is selectable in browser after page load (user to verify)
+- [x] Confirm Python kernel is selectable in browser after page load (user verified working)
 
 ---
 
@@ -51,11 +51,14 @@ Deploy the browser history analysis notebooks as a publicly accessible JupyterLi
 ## Local Dev / Test Server
 
 - [x] HTTP server running at `http://127.0.0.1:8000/lab`
-- [ ] Document rebuild command in README:
+- [x] Notebooks accessible via File Browser in left sidebar at `dist/files/`
+- [ ] Document rebuild + server commands in README:
   ```bash
+  rm -rf dist
   jupyter lite build --output-dir dist
   python3 -m http.server 8000 --directory dist
   ```
+  Then visit `http://localhost:8000/lab`
 
 ---
 
@@ -64,3 +67,4 @@ Deploy the browser history analysis notebooks as a publicly accessible JupyterLi
 - **Push blocked** — `ci-fixes` branch has 6 commits ahead of `origin/main` but push is blocked by missing write credentials in this environment. Must be pushed manually.
 - **Hardcoded user path** — `jupyter_lite_config.json` contains `/home/fb/.local/share/jupyter/labextensions`. This is fine for local dev and CI (where `setup-python` installs to `sys.prefix`), but won't work for other developers. Consider replacing with a venv or a build script that injects the path dynamically.
 - **`browser_history_topic_overview.ipynb`** — not yet checked for the same import / dependency issues.
+- **Notebooks in dist/files/** — Notebooks are placed in `files/` subdirectory rather than root. Access via File Browser or direct URL: `http://localhost:8000/lab?path=files/browser_history_domain_overview.ipynb`

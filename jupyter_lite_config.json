@@ -6,11 +6,16 @@
     "contents": [
       "browser_history_domain_overview.ipynb",
       "browser_history_topic_overview.ipynb",
-      "initialisation.py"
+      "initialisation.py",
+      "BrowserHistory.csv"
     ]
+  },
+  "PyodideKernelAddon": {
+    "disable": false
   },
   "jupyter-config-data": {
     "appName": "JupyterLite",
-    "defaultKernelName": "python"
+    "defaultKernelName": "python",
+    "@jupyterlab/docmanager:defaultBrowser": "browser"
   }
 }

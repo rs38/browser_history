@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 
 import pandas as pd
 
-DEFAULT_CSV_PATH = Path("BrowserHistory_22.02.26.csv")
+DEFAULT_CSV_PATH = Path("BrowserHistory.csv")
 
 
 def extract_domain(url: str) -> str:
