@@ -10,8 +10,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
@@ -36,14 +34,26 @@ jobs:
       - name: Disable Jekyll
         run: touch docs/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact (for deploy)
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
         with:
+          path: docs
+
+      - name: Upload build artifact (for PR inspection)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: jupyterlite-docs
           path: docs
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
