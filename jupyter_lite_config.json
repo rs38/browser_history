@@ -6,8 +6,7 @@
     "contents": [
       "browser_history_domain_overview.ipynb",
       "browser_history_topic_overview.ipynb",
-      "initialisation.py",
-      "BrowserHistory.csv"
+      "initialisation.py"
     ]
   },
   "PyodideKernelAddon": {
