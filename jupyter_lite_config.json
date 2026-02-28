@@ -1,13 +1,6 @@
 {
-  "FederatedExtensionAddon": {
-    "extra_labextensions_path": ["/home/fb/.local/share/jupyter/labextensions"]
-  },
   "LiteBuildApp": {
-    "contents": [
-      "browser_history_domain_overview.ipynb",
-      "browser_history_topic_overview.ipynb",
-      "initialisation.py"
-    ]
+    "contents": ["deploy"]
   },
   "PyodideKernelAddon": {
     "disable": false
