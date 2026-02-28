@@ -1,3 +1,5 @@
 BrowserHistory_22.02.26.csv
 __pycache__/
 BrowserHistory.csv
+docs/
+.jupyterlite.doit.db
